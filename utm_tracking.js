@@ -20,44 +20,54 @@ var utm_adgroup = getParameterByName('utm_adgroup');
 var utm_gclid = getParameterByName('utm_gclid');
 var utm_keyword = getParameterByName('utm_keyword');
 
-// Set the cookies
-  if (getCookie("utm_source")== null || getCookie("utm_source")== ""){
-    document.cookie = "utm_source=" + utm_source;
+// Set Local Storage
+  if (utm_source != ''){
+    localStorage.setItem("utm_source", utm_source);
   }
-  if (getCookie("utm_campaign")== null || getCookie("utm_campaign")== ""){
-    document.cookie = "utm_campaign=" + utm_campaign;
+  if (utm_campaign != ""){
+    localStorage.setItem("utm_campaign", utm_campaign);
   }
-  if (getCookie("utm_term")== null || getCookie("utm_term")== ""){
-    document.cookie = "utm_term=" + utm_term;
+  if (utm_term != ""){
+    localStorage.setItem("utm_term", utm_term);
   }
-  if (getCookie("utm_content")== null || getCookie("utm_content")== ""){
-    document.cookie = "utm_content=" + utm_content;
+  if (utm_content != ""){
+    localStorage.setItem("utm_content", utm_content);
   }
-  if (getCookie("utm_medium")== null || getCookie("utm_medium")== ""){
-    document.cookie = "utm_medium=" + utm_medium;
+  if (utm_medium != ""){
+    localStorage.setItem("utm_medium", utm_medium);
   }
-  if (getCookie("utm_adgroup")== null || getCookie("utm_adgroup")== ""){
-    document.cookie = "utm_adgroup=" + utm_adgroup;
+  if (utm_adgroup != ""){
+    localStorage.setItem("utm_adgroup", utm_adgroup);
   }
-  if (getCookie("utm_gclid")== null || getCookie("utm_gclid")== ""){
-    document.cookie = "utm_gclid=" + utm_gclid;
+  if (utm_gclid != ""){
+    localStorage.setItem("utm_gclid", utm_gclid);
   }
-  if (getCookie("utm_keyword")== null || getCookie("utm_keyword")== ""){
-    document.cookie = "utm_keyword=" + utm_keyword;
+  if (utm_keyword != ""){
+    localStorage.setItem("utm_keyword", utm_keyword);
   }
 
-function getCookie(cname) {
-  var name = cname + "=";
-  var decodedCookie = decodeURIComponent(document.cookie);
-  var ca = decodedCookie.split(';');
-  for(var i = 0; i <ca.length; i++) {
-    var c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
+  // Set cookie
+  if (localStorage.getItem("utm_source") != ''){
+    document.cookie = "utm_source=" + localStorage.getItem("utm_source");
   }
-  return "";
-}
+  if (localStorage.getItem("utm_campaign") != ''){
+    document.cookie = "utm_campaign=" + localStorage.getItem("utm_campaign");
+  }
+  if (localStorage.getItem("utm_term") != ''){
+    document.cookie = "utm_term=" + localStorage.getItem("utm_term");
+  }
+  if (localStorage.getItem("utm_content") != ''){
+    document.cookie = "utm_content=" + localStorage.getItem("utm_content");
+  }
+  if (localStorage.getItem("utm_medium") != ''){
+    document.cookie = "utm_medium=" + localStorage.getItem("utm_medium");
+  }
+  if (localStorage.getItem("utm_adgroup") != ''){
+    document.cookie = "utm_adgroup=" + localStorage.getItem("utm_adgroup");
+  }
+  if (localStorage.getItem("utm_gclid") != ''){
+    document.cookie = "utm_gclid=" + localStorage.getItem("utm_gclid");
+  }
+  if (localStorage.getItem("utm_keyword") != ''){
+    document.cookie = "utm_keyword=" + localStorage.getItem("utm_keyword");
+  }
